@@ -1,3 +1,6 @@
+"use client"
+
+import React, {useState, useEffect} from 'react'
 // ** MUI Imports
 import Box from '@mui/material/Box'
 import Grid from '@mui/material/Grid'
@@ -80,9 +83,8 @@ const StatisticsCard = () => {
         subheader={
           <Typography variant='body2'>
             <Box component='span' sx={{ fontWeight: 600, color: 'text.primary' }}>
-              Total 48.5% growth
-            </Box>{' '}
-            😎 this month
+              Total 48.5% growth this month 
+            </Box>
           </Typography>
         }
         titleTypographyProps={{
