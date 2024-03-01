@@ -9,17 +9,17 @@ import Typography from '@mui/material/Typography'
 import CardContent from '@mui/material/CardContent'
 
 // ** Icons Imports
-import TrendingUp from 'mdi-material-ui/TrendingUp'
+import ImageIcon from 'mdi-material-ui/Image'
 import CurrencyUsd from 'mdi-material-ui/CurrencyUsd'
 import DotsVertical from 'mdi-material-ui/DotsVertical'
-import CellphoneLink from 'mdi-material-ui/CellphoneLink'
+import CellphoneLink from 'mdi-material-ui/Crown'
 import AccountOutline from 'mdi-material-ui/AccountOutline'
 const salesData = [
   {
     stats: '245k',
     title: 'Photo',
     color: 'primary',
-    icon: <TrendingUp sx={{ fontSize: '1.75rem' }} />
+    icon: <ImageIcon sx={{ fontSize: '1.75rem' }} />
   },
   {
     stats: '12.5k',
@@ -30,7 +30,7 @@ const salesData = [
   {
     stats: '1.54k',
     color: 'warning',
-    title: 'Products',
+    title: 'Member',
     icon: <CellphoneLink sx={{ fontSize: '1.75rem' }} />
   },
   {
