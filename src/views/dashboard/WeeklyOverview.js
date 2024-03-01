@@ -19,6 +19,7 @@ const WeeklyOverview = () => {
 
   const options = {
     chart: {
+      height:400,
       parentHeightOffset: 0,
       toolbar: { show: false }
     },
@@ -32,7 +33,7 @@ const WeeklyOverview = () => {
       }
     },
     stroke: {
-      width: 2,
+      width: 1,
       colors: [theme.palette.background.paper]
     },
     legend: { show: false },
@@ -66,15 +67,15 @@ const WeeklyOverview = () => {
       categories: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
       tickPlacement: 'on',
       labels: { show: true },
-      axisTicks: { show: false },
+      axisTicks: { show: true },
       axisBorder: { show: false }
     },
     yaxis: {
       show: true,
-      tickAmount: 4,
+      tickAmount: 8,
       labels: {
         offsetX: -17,
-        formatter: value => `${value > 999 ? `${(value / 1000).toFixed(0)}` : value}`
+        formatter: value => `${value > 99 ? `${(value / 999).toFixed(0)}` : value}`
       }
     }
   }
@@ -86,21 +87,16 @@ const WeeklyOverview = () => {
         titleTypographyProps={{
           sx: { lineHeight: '2rem !important', letterSpacing: '0.15px !important' }
         }}
-        // action={
-        //   <IconButton size='small' aria-label='settings' className='card-more-options' sx={{ color: 'text.secondary' }}>
-        //     <DotsVertical />
-        //   </IconButton>
-        // }
       />
       <CardContent sx={{ '& .apexcharts-xcrosshairs.apexcharts-active': { opacity: 0 } }}>
-        <ReactApexcharts type='bar' height={205} options={options}
+        <ReactApexcharts type='bar' height={450} options={options}
           series={
           [
               {
-              name:"Membership Purchased",
+              name:"Membership Purchased by user",
               data: [
                 37,
-                57,
+                2,
                 45,
                 75,
                 57,
