@@ -87,19 +87,21 @@ const rows = [
 ]
 
 const statusObj = {
-  "1": { color: 'info' }, 
-  "2": { color: 'primary' }, 
-  "3": { color: 'warning' },
+  success: { color: 'success' },
+  pending: { color: 'primary' },
+  declined: { color: 'error' }
 };
+
+
 
 const getStatusLabel = (status) => {
   switch (status) {
-    case "1":
-      return 'User';
-    case "2":
-      return 'Member';
-    case "3":
-      return 'Admin';
+    case "success":
+      return 'Success';
+    case "pending":
+      return 'Pending';
+    case "declined":
+      return 'Declined';
     default:
       return 'Undefined';
   }
@@ -107,12 +109,12 @@ const getStatusLabel = (status) => {
 
 const getStatusColor = (status) => {
   switch (status) {
-    case "1":
-      return statusObj[1].color;
-    case "2":
-      return statusObj[2].color;
-    case "3":
-      return statusObj[3].color;
+    case 'success':
+      return statusObj.success.color;
+    case 'pending':
+      return statusObj.pending.color;
+    case 'declined':
+      return statusObj.declined.color;
     default:
       return 'default';
   }
@@ -122,43 +124,59 @@ const formatRegistrationDate = (createdAt) => {
   return createdAt ? moment(createdAt).format('MMMM Do YYYY, h:mm:ss a') : '-';
 };
 
-const DashboardTable = ({ currentUser }) => {
+
+const renderNoDataMessage = () => {
+  return (
+    <TableRow>
+      <TableCell colSpan={6} align="center">
+        <Typography variant="body1">No data available</Typography>
+      </TableCell>
+    </TableRow>
+  );
+};
+
+const DashboardTable = ({ paymentSuccess }) => {
   
-  console.log(currentUser)
+  console.log(paymentSuccess)
 
   return (
+    <>
+    <h1>Payment Success</h1>
     <Card>
       <TableContainer>
         <Table sx={{ minWidth: 800 }} aria-label='table in dashboard'>
           <TableHead>
             <TableRow>
+              <TableCell>Riwayat ID</TableCell>
               <TableCell>Username</TableCell>
-              <TableCell>Email</TableCell>
-              <TableCell>Nama Lengkap</TableCell>
-              <TableCell>Alamat</TableCell>
-              <TableCell>Join</TableCell>
+              <TableCell>Payment Gateway</TableCell>
+              <TableCell>Nominal</TableCell>
+              <TableCell>Tanggal Pembayaran</TableCell>
               <TableCell>Status</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            {currentUser?.map(row => (
-              <TableRow hover key={row?.name} sx={{ '&:last-of-type td, &:last-of-type th': { border: 0 } }}>
+            {paymentSuccess?.length > 0 ? (
+            paymentSuccess?.map(row => (
+              <TableRow hover key={row?.riwayat_id} sx={{ '&:last-of-type td, &:last-of-type th': { border: 0 } }}>
                 <TableCell sx={{ py: theme => `${theme.spacing(0.5)} !important` }}>
                   <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-                    <Typography sx={{ fontWeight: 500, fontSize: '0.875rem !important' }}>{row?.username}</Typography>
-                    <Typography variant='caption'>{row?.designation}</Typography>
+                    <Typography sx={{ fontWeight: 500, fontSize: '0.875rem !important' }}>{row?.riwayat_id}</Typography>
+                    <Typography variant='caption'></Typography>
                   </Box>
                 </TableCell>
-                <TableCell>{row?.email}</TableCell>
-                <TableCell>{row?.nama_lengkap || '-'}</TableCell>
-                <TableCell>{row?.alamat || '-'}</TableCell>
+                <TableCell>{row?.user?.username}</TableCell>
+                <TableCell>{row?.payment_gateway || '-'}</TableCell>
+                <TableCell>
+                  {row?.nominal_pembayaran}
+                </TableCell>
                 <TableCell>
                   {formatRegistrationDate(row?.created_at)}
                 </TableCell>
                 <TableCell>
                   <Chip
-                    label={getStatusLabel(row.status)}
-                    color={getStatusColor(row.status)}
+                    label={getStatusLabel(row?.status)}
+                    color={getStatusColor(row?.status)}
                     sx={{
                       height: 24,
                       fontSize: '0.75rem',
@@ -168,11 +186,15 @@ const DashboardTable = ({ currentUser }) => {
                   />
                 </TableCell>
               </TableRow>
-            ))}
+            ))
+            ) : (
+            renderNoDataMessage()
+            )}
           </TableBody>
         </Table>
       </TableContainer>
     </Card>
+    </>
   )
 }
 

@@ -14,9 +14,12 @@ import DotsVertical from 'mdi-material-ui/DotsVertical'
 // ** Custom Components Imports
 import ReactApexcharts from 'src/@core/components/react-apexcharts'
 
-const WeeklyOverview = () => {
-  const theme = useTheme()
+const WeeklyOverview = ({ weeklyOverview }) => {
+  
+  console.log(weeklyOverview)
 
+
+  const theme = useTheme()
   const options = {
     chart: {
       height:400,
@@ -64,7 +67,7 @@ const WeeklyOverview = () => {
       }
     },
     xaxis: {
-      categories: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+      categories: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
       tickPlacement: 'on',
       labels: { show: true },
       axisTicks: { show: true },
@@ -94,15 +97,7 @@ const WeeklyOverview = () => {
           [
               {
               name:"Membership Purchased by user",
-              data: [
-                37,
-                2,
-                45,
-                75,
-                57,
-                40,
-                65
-              ]
+               data: weeklyOverview?.weekly_payments ? Object.values(weeklyOverview.weekly_payments).map(day => day ?? 0) : []
             }
           ]
         } 
@@ -110,13 +105,10 @@ const WeeklyOverview = () => {
         />
         <Box sx={{ mb: 7, display: 'flex', alignItems: 'center' }}>
           <Typography variant='h5' sx={{ mr: 4 }}>
-            45%
+            {weeklyOverview?.total_weekly_percents}%
           </Typography>
-          <Typography variant='body2'>Your sales performance is 45% better compared to last month</Typography>
+          <Typography variant='body2'>Your sales performance is {weeklyOverview?.total_weekly_percents}% better compared to last month</Typography>
         </Box>
-        {/* <Button fullWidth variant='contained'>
-          Details
-        </Button> */}
       </CardContent>
     </Card>
   )

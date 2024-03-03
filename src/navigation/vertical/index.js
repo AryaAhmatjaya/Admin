@@ -9,13 +9,20 @@ import AccountCogOutline from 'mdi-material-ui/AccountCogOutline'
 import AccountPlusOutline from 'mdi-material-ui/AccountPlusOutline'
 import AlertCircleOutline from 'mdi-material-ui/AlertCircleOutline'
 // import GoogleCirclesExtended from 'mdi-material-ui/GoogleCirclesExtended'
+import CurrencyUsd from 'mdi-material-ui/CurrencyUsd'
+
 
 const navigation = () => {
   return [
     {
       title: 'Dashboard',
       icon: HomeOutline,
-      path: '/'
+      path: '/dashboard'
+    },
+    {
+      title: 'Payment',
+      icon: CurrencyUsd,
+      path: '/payment'
     },
     {
       title: 'Account Settings',
