@@ -6,11 +6,11 @@ import HomeOutline from 'mdi-material-ui/HomeOutline'
 // import FormatLetterCase from 'mdi-material-ui/FormatLetterCase'
 import AccountCogOutline from 'mdi-material-ui/AccountCogOutline'
 // import CreditCardOutline from 'mdi-material-ui/CreditCardOutline'
-import AccountPlusOutline from 'mdi-material-ui/AccountPlusOutline'
-import AlertCircleOutline from 'mdi-material-ui/AlertCircleOutline'
+import Member from 'mdi-material-ui/CrownOutline'
+import Discuss from 'mdi-material-ui/ForumOutline'
 // import GoogleCirclesExtended from 'mdi-material-ui/GoogleCirclesExtended'
 import CurrencyUsd from 'mdi-material-ui/CurrencyUsd'
-import ImageIcon from 'mdi-material-ui/Image'
+import ImageIcon from 'mdi-material-ui/ImageOutline'
 
 
 const navigation = () => {
@@ -32,7 +32,7 @@ const navigation = () => {
     },
     {
       title: 'Ruang Diskusi',
-      icon: AccountCogOutline,
+      icon: Discuss,
       path: '/room_discuss'
     },
     {
@@ -42,7 +42,7 @@ const navigation = () => {
     },
     {
       title: 'Member',
-      icon: AccountCogOutline,
+      icon: Member,
       path: '/member'
     },
     // {

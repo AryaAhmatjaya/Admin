@@ -9,7 +9,7 @@ const FooterContent = () => {
   const hidden = useMediaQuery(theme => theme.breakpoints.down('md'))
 
   return (
-    <Box sx={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between' }}>
+    <Box sx={{ display: 'flex', flexWrap: 'wrap', alignItems: 'Right', }}>
       <Typography sx={{ mr: 2 }}>
         {`© ${new Date().getFullYear()}, Copyright `}
         {/* <Box component='span' sx={{ color: 'error.main' }}>
@@ -22,7 +22,7 @@ const FooterContent = () => {
       </Typography>
       {hidden ? null : (
         <Box sx={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', '& :not(:last-child)': { mr: 4 } }}>
-          <Link
+          {/* <Link
             target='_blank'
             href='https://github.com/themeselection/materio-mui-react-nextjs-admin-template-free/blob/main/LICENSE'
           >
@@ -42,7 +42,7 @@ const FooterContent = () => {
             href='https://github.com/themeselection/materio-mui-react-nextjs-admin-template-free/issues'
           >
             Support
-          </Link>
+          </Link> */}
         </Box>
       )}
     </Box>
