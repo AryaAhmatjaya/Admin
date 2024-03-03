@@ -19,7 +19,7 @@ const MUITable = () => {
       <Grid item xs={12}>
         <Typography variant='h5'>
           <Link href='https://mui.com/components/tables/' target='_blank'>
-            MUI Tables
+            MUI Tablesa
           </Link>
         </Typography>
         <Typography variant='body2'>Tables display sets of data. They can be fully customized</Typography>

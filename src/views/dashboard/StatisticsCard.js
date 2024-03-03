@@ -32,7 +32,7 @@ const StatisticsCard = ({statisticData}) => {
     const salesData = [
       {
         stats: statisticData.photo_total_data,
-        title: 'Photo',
+        title: 'Photo Active',
         color: 'primary',
         icon: <ImageIcon sx={{ fontSize: '1.75rem' }} />
       },

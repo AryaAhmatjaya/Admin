@@ -87,6 +87,7 @@ const rows = [
 ]
 
 const statusObj = {
+  "0": { color: 'warning' }, 
   "1": { color: 'info' }, 
   "2": { color: 'primary' }, 
   "3": { color: 'warning' },
@@ -94,6 +95,8 @@ const statusObj = {
 
 const getStatusLabel = (status) => {
   switch (status) {
+     case "0":
+      return 'Suspended';
     case "1":
       return 'User';
     case "2":
@@ -107,6 +110,8 @@ const getStatusLabel = (status) => {
 
 const getStatusColor = (status) => {
   switch (status) {
+    case "0":
+      return statusObj[0].color;
     case "1":
       return statusObj[1].color;
     case "2":

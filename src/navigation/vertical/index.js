@@ -10,6 +10,7 @@ import AccountPlusOutline from 'mdi-material-ui/AccountPlusOutline'
 import AlertCircleOutline from 'mdi-material-ui/AlertCircleOutline'
 // import GoogleCirclesExtended from 'mdi-material-ui/GoogleCirclesExtended'
 import CurrencyUsd from 'mdi-material-ui/CurrencyUsd'
+import ImageIcon from 'mdi-material-ui/Image'
 
 
 const navigation = () => {
@@ -20,15 +21,35 @@ const navigation = () => {
       path: '/dashboard'
     },
     {
-      title: 'Payment',
+      title: 'Foto',
+      icon: ImageIcon,
+      path: '/photo'
+    },
+    {
+      title: 'Pembayaran',
       icon: CurrencyUsd,
       path: '/payment'
     },
     {
-      title: 'Account Settings',
+      title: 'Ruang Diskusi',
       icon: AccountCogOutline,
-      path: '/account-settings'
+      path: '/room_discuss'
     },
+    {
+      title: 'User',
+      icon: AccountCogOutline,
+      path: '/user'
+    },
+    {
+      title: 'Member',
+      icon: AccountCogOutline,
+      path: '/member'
+    },
+    // {
+    //   title: 'Account Settings',
+    //   icon: AccountCogOutline,
+    //   path: '/account-settings'
+    // },
     {
       sectionTitle: 'Pages'
     },
