@@ -89,7 +89,7 @@ const StatisticsCard = ({statisticData}) => {
         subheader={
           <Typography variant='body2'>
             <Box component='span' sx={{ fontWeight: 600, color: 'text.primary' }}>
-              Total member {statisticData?.member_percent}% growth this month
+              Total member {statisticData?.member_percent}% growth this week
             </Box>
           </Typography>
         }
